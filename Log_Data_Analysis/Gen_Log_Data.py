@@ -1,4 +1,7 @@
-__author__ = 'ubu'
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#  adapted from hortonworks example
+# http://hortonworks.com/hadoop-tutorial/how-to-refine-and-visualize-server-log-data/
 from random import randrange
 import random
 import logging

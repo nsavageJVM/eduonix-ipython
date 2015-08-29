@@ -1,9 +1,8 @@
-
-# coding: utf-8
-
-# In[145]:
-
-# assumes we have tsv data in '/root/temp.tsv' 
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# snippets for ipython notebook, do not try to run this code
+# assumes we have tsv data in '/root/temp.tsv'
+# needs sklearn matplotlib
 
 import warnings
 warnings.filterwarnings('ignore')
