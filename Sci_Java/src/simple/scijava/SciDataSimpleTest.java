@@ -37,7 +37,8 @@ public class SciDataSimpleTest extends Configured implements Tool {
     Configuration conf = this.getConf();
     
     Job job = Job.getInstance(conf, "SciData Job");
-
+    
+    setTextoutputformatSeparator(job, "|");
 
     job.setJarByClass(SciDataSimpleTest.class);
     
@@ -47,9 +48,9 @@ public class SciDataSimpleTest extends Configured implements Tool {
     //value type coming out of mapper
     job.setMapOutputValueClass(Text.class);
 
-    //Defining the mapper class name
-    job.setMapperClass(SimpleMapper.class);
-    
+    //Defining the mapper class name  
+    // job.setMapperClass(SimpleMapper.class);
+    job.setMapperClass(TrainingDataMapper.class);
     //Defining the reducer class name
     job.setReducerClass(SimpleReducer.class);
     
@@ -86,5 +87,11 @@ public class SciDataSimpleTest extends Configured implements Tool {
     // Execute job and return status
     return job.waitForCompletion(true) ? 0 : 1;
   }
+  
+  void setTextoutputformatSeparator(final Job job, final String separator){
+      final Configuration conf = job.getConfiguration(); //ensure accurate config ref
+
+      conf.set("mapred.textoutputformat.separatorText", separator); // ?
+}
 }
 
