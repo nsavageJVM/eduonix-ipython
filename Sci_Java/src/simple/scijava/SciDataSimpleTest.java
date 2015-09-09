@@ -37,8 +37,7 @@ public class SciDataSimpleTest extends Configured implements Tool {
     Configuration conf = this.getConf();
     
     Job job = Job.getInstance(conf, "SciData Job");
-    
-    setTextoutputformatSeparator(job, "|");
+
 
     job.setJarByClass(SciDataSimpleTest.class);
     
@@ -48,9 +47,9 @@ public class SciDataSimpleTest extends Configured implements Tool {
     //value type coming out of mapper
     job.setMapOutputValueClass(Text.class);
 
-    //Defining the mapper class name  
-    // job.setMapperClass(SimpleMapper.class);
+    //Defining the mapper class name
     job.setMapperClass(TrainingDataMapper.class);
+    
     //Defining the reducer class name
     job.setReducerClass(SimpleReducer.class);
     
@@ -62,15 +61,15 @@ public class SciDataSimpleTest extends Configured implements Tool {
     job.setOutputFormatClass(TextOutputFormat.class);
 
   if(runOnHDFS) {
-	    output = new Path("sci_data_1_out.txt");
+	    output = new Path("sci_data_1_out");
 	    input =  new Path("sci_data_1.txt");
   } else {
-	    output = new Path(String.format("%s%s", projectRootPath,"/sci_data_1_out.txt"));
+	    output = new Path(String.format("%s%s", projectRootPath,"/sci_data_1_out"));
 	    input =  new Path(String.format("%s%s", projectRootPath,"/sci_data_1.txt"));
   }
 
     
-    output.getFileSystem(conf).delete(output);
+    output.getFileSystem(conf).delete(output, true);
        
     FileInputFormat.addInputPath(job, input);
     
@@ -87,11 +86,5 @@ public class SciDataSimpleTest extends Configured implements Tool {
     // Execute job and return status
     return job.waitForCompletion(true) ? 0 : 1;
   }
-  
-  void setTextoutputformatSeparator(final Job job, final String separator){
-      final Configuration conf = job.getConfiguration(); //ensure accurate config ref
-
-      conf.set("mapred.textoutputformat.separatorText", separator); // ?
-}
 }
 
