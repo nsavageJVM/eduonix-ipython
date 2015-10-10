@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Predictive_Analytics&apos;" deleteContents="false" description="Delete resource &apos;Predictive_Analytics&apos;" element1="/Predictive_Analytics" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1441529747513"/>&#x0A;<refactoring comment="Delete resource &apos;Predictive Analytics&apos;" deleteContents="false" description="Delete resource &apos;Predictive Analytics&apos;" element1="/Predictive Analytics" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1441529982455"/>
-</session>

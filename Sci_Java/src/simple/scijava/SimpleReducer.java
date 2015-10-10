@@ -9,8 +9,9 @@ public class SimpleReducer extends Reducer<Text, Text, Text, Text> {
 
   public void reduce(Text key,  Iterator<Text> values, Context context)  throws IOException, InterruptedException {
 	    
-	  String temperature = values.next().toString();
-        context.write(key, new Text(temperature));
+   	  String valueData = values.next().toString();
+      
+      context.write(key, new Text(valueData));
 
   }
 }
